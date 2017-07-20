@@ -6,7 +6,7 @@
  *
  * @package premise
  */
-
+ get_template_part('sections/hero');
 get_header(); ?>
 
 <section class="blog-area">

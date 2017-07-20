@@ -69,7 +69,7 @@ function premise_setup() {
 	
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary-nav' => esc_html__( 'Primary nav', 'premix' ),
+		'primary-nav' => esc_html__( 'Primary nav', 'premise' ),
 	) );
 	
 	
@@ -126,8 +126,27 @@ function premise_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	
+	
+	wp_add_inline_style('premise-style', apply_filters('premise_infile_css','') );
 }
 add_action( 'wp_enqueue_scripts', 'premise_scripts' );
+
+
+
+//premise hero BG image
+function premise_hero_image($css = ''){
+	$blog_background_image_url = get_theme_mod('premise_hero_bg_img');
+	return $css .  sprintf('.hero-area.hero-blog { background: url(%s); }', $blog_background_image_url); 
+}
+add_filter('premise_infile_css', 'premise_hero_image');
+
+
+
+
+
+
+
 
 /**
  * Implement the Custom Header feature.
@@ -170,7 +189,7 @@ add_filter('the_excerpt', function ($content){
 	$post_content = explode(" ", $content);
 	$less_content = array_slice($post_content, 0, 42);
 	$excert =  implode(" ", $less_content);
-	$excert = sprintf('<p>%s</p> <a href="%s" class="pb-btn p-btn-medium">%s</a>',$excert, get_the_permalink(),__('Read More','premix')) ;
+	$excert = sprintf('<p>%s</p> <a href="%s" class="pb-btn p-btn-medium">%s</a>',$excert, get_the_permalink(),__('Read More','premise')) ;
 	return $excert;	
 });
 
@@ -235,4 +254,66 @@ function premise_pegination(){
 	);
 }
 
+//  BREADCRUMBS		
+
+function the_breadcrumb() {
+    $sep = '  ';
+    if (!is_front_page()) {
+	
+	// Start the breadcrumb with a link to your homepage
+        echo '<div class="breadcrumb">
+				<ul>';
+        echo '<li><a href="';
+        echo get_option('home');
+        echo '">';
+		bloginfo('name');
+        echo '</li>' . $sep;
+	
+	// Check if the current page is a category, an archive or a single page. If so show the category or archive name.
+        if (is_category() || is_single() ){
+            the_category('title_li=');
+        } elseif (is_archive() || is_single()){
+            if ( is_day() ) {
+                printf( __( '%s', 'premise' ), get_the_date() );
+            } elseif ( is_month() ) {
+                printf( __( '%s', 'premise' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'premise' ) ) );
+            } elseif ( is_year() ) {
+                printf( __( '%s', 'premise' ), get_the_date( _x( 'Y', 'yearly archives date format', 'premise' ) ) );
+            } else {
+                _e( 'Blog Archives', 'premise' );
+            }
+        }
+	
+	// If the current page is a single post, show its title with the separator
+        if (is_single()) {
+            echo $sep;
+            the_title();
+        }
+	
+	// If the current page is a static page, show its title.
+        if (is_page()) {
+            echo the_title();
+        }
+	
+	// if you have a static page assigned to be you posts list page. It will find the title of the static page and display it. i.e Home >> Blog
+        if (is_home()){
+            global $post;
+            $page_for_posts_id = get_option('page_for_posts');
+            if ( $page_for_posts_id ) { 
+                $post = get_page($page_for_posts_id);
+                setup_postdata($post);
+                the_title();
+                rewind_posts();
+            }
+        }
+        echo '</ul></div>';
+    }
+}
+
+
+
+
+
+
 require_once get_template_directory() . '/inc/functions/register-cpt.php';
+require_once get_template_directory() . '/inc/customizer/functions.php';
