@@ -2,8 +2,8 @@
 /**
  * Template Name: Homepage
  *
- * @package premix
- * @since Premix 1.0
+ * @package premise
+ * @since premise 1.0
  */
 get_header(); ?>
 	<!-- Start Hero Section -->

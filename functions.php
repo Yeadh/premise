@@ -8,39 +8,17 @@
  */
 
 if ( ! function_exists( 'premise_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
+
 function premise_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on premise, use a find and replace
-	 * to change 'premise' to the name of your theme in all the template files.
-	 */
+
 	load_theme_textdomain( 'premise', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
 	add_theme_support( 'title-tag' );
-
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
-	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails', array( 'post', 'premise_portfolio' ) );
+		add_image_size( 'port-image', 360, 285, true ); 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'premise' ),
@@ -234,3 +212,27 @@ function premise_blog_social_share(){
 	</div><!-- .social-feedback -->
 	<?php
 }
+
+//premise pegination
+
+function premise_pegination(){
+	array(
+		'base'               => '%_%',
+		'format'             => '?paged=%#%',
+		'total'              => 1,
+		'current'            => 0,
+		'show_all'           => false,
+		'end_size'           => 1,
+		'mid_size'           => 2,
+		'prev_next'          => true,
+		'prev_text'          => __('« Previous'),
+		'next_text'          => __('Next »'),
+		'type'               => 'plain',
+		'add_args'           => false,
+		'add_fragment'       => '',
+		'before_page_number' => '',
+		'after_page_number'  => ''
+	);
+}
+
+require_once get_template_directory() . '/inc/functions/register-cpt.php';
