@@ -66,15 +66,16 @@
 		</div><!-- .navbar-collapse -->
 		<div class="nav-area">
 			<div class="inner-nav-area">
+			<div class="nav-list">
 				<?php 
 					wp_nav_menu( array( 
 						'theme_location' => 'primary-nav',
-						'menu_class'	 => 'nav-list'
 					) );  
 				?>
+			</div><!-- .inner-nav-list -->
 			</div><!-- .inner-nav-area -->
 			<div class="container nav-other">
-				<p class="menu-copyright pull-left">&copy; Copyright 2017 Pressionate. All Rights Reserved.</p>
+				<p class="menu-copyright pull-left"><?php footer_text_copyright(); ?></p>
 				<div class="menu-socials pull-right">
 					<ul>
 						<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>

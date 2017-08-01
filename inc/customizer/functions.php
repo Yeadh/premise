@@ -4,12 +4,6 @@
  *
  * @package premise
  */
- 	/*Start Blog Hero BG Image*/
-function premise_hero_bg() {
-	 if( get_theme_mod( 'premise_hero_bg_img') != "" ) {
-		echo get_theme_mod( 'premise_hero_bg_img');
-	 }
-}
 	/*Start Blog Hero Title*/
 function premise_hero_title() {
 	 if( get_theme_mod( 'premise_bloghero_text') != "" ) {
@@ -17,12 +11,6 @@ function premise_hero_title() {
 	 }
 }
 
- 	/*Start Home Hero BG Image*/
-function premise_homehero_bg() {
-	 if( get_theme_mod( 'premise_homehero_bg_img') != "" ) {
-		echo get_theme_mod( 'premise_hero_bg_img');
-	 }
-}
 	/*Start Home Hero Title*/
 function premise_homehero_title() {
 	 if( get_theme_mod( 'premise_homehero_text') != "" ) {
@@ -30,8 +18,29 @@ function premise_homehero_title() {
 	 }
 }
 	/*Start Home Hero Services*/
-function premise_homehero_services() {
+function premise_homehero_services(){
 	 if( get_theme_mod( 'premise_homehero_services') != "" ) {
 		echo get_theme_mod( 'premise_homehero_services');
+	 }
+}
+
+	/*Footer Copyright */
+function footer_text_copyright(){
+	 if( get_theme_mod( 'footer_text') != "" ) {
+		echo get_theme_mod( 'footer_text');
+	 }
+}
+
+	/*About Image*/
+function premise_homeabout_image(){
+	 if( get_theme_mod( 'premise_homeabout_image') != "" ) {
+		echo get_theme_mod( 'premise_homeabout_image');
+	 }
+}
+
+	/*About Who R U ? Title */
+function premise_who_are_you(){
+	 if( get_theme_mod( 'premise_who_are_you') != "" ) {
+		echo get_theme_mod( 'premise_who_are_you');
 	 }
 }

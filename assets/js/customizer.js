@@ -39,4 +39,22 @@
 			}
 		} );
 	} );
+	// Home hero image.
+	wp.customize('premise_homehero_image', function (value) {
+    value.bind(function (to) {
+        $('.home .hero-area').css('background-image', 'url( '+ to +')');
+    });
+	});
+		// All Hero image.
+	wp.customize('premise_bloghero_image', function (value) {
+    value.bind(function (to) {
+        $('.hero-area-all').css('background-image', 'url( '+ to +')');
+    });
+	});
+	
+	
+	
+	
+	
+	
 } )( jQuery );

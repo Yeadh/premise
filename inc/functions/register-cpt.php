@@ -17,8 +17,19 @@ function premise_register_cpt() {
       'has_archive' => true,
     )
   );
-
-
+   //Register custom post type team_members
+  register_post_type( 'team_members',
+    array(
+      'labels' => array(
+        'name' => __( 'Team Members' ),
+        'singular_name' => __( 'Team' ),
+		'add_new' => ('Add New Team'),
+      ),
+      'public' => true,
+	  'supports' => array( 'title', 'editor', 'thumbnail',),
+      'has_archive' => true,
+    )
+  );
   	// Add Categorys for artist
 	$labels = array(
 		'name'              => _x( 'Category', 'taxonomy general name', 'premise' ),
@@ -44,39 +55,9 @@ function premise_register_cpt() {
 	);
 
 	register_taxonomy( 'premise_portfolio_cat', array( 'premise_portfolio' ), $args );
+	
+	
+
+
 }
 add_action( 'init', 'premise_register_cpt' );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
