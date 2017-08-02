@@ -16,4 +16,6 @@ get_header(); ?>
 		</div><!-- .container -->
 	</section>
 	<!-- End Portfolio Area -->
+
+		<?php get_template_part('sections/blog'); ?>
 	<?php get_footer(); ?>

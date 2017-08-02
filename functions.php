@@ -19,6 +19,7 @@ function premise_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails', array( 'post', 'premise_portfolio', 'team_members' ) );
 		add_image_size( 'port-image', 360, 285, true ); 
+		add_image_size( 'home_blog_image', 360, 240, true ); 
 		
 
 	/*
@@ -219,15 +220,6 @@ add_filter('the_excerpt', function ($content){
 	$excert = sprintf('<p>%s</p> <a href="%s" class="pb-btn p-btn-medium">%s</a>',$excert, get_the_permalink(),__('Read More','premise')) ;
 	return $excert;	
 });
-
-
-
-
-
-
-
-
-
 
 
 //premise Footer social
