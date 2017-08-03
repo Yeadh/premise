@@ -34,6 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
 							 'portfolio' => 'Portfolio Section',
                             ),
                             'disabled' => array( 
+								'portfolio-2' => 'Portfolio masonry',
                                  'blog' => 'Blog Section',
                                  'testimonials' => 'Testimonials Section',
 							) 

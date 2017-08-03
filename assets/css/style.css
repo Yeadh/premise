@@ -1821,10 +1821,12 @@ blockquote small {
 	font-size: 14px;
 	line-height: 20px;
 }
-.post-img .post-date span:first-child {
-	font-weight: 600;
-	font-size: 16px;
-	margin-top: 6px;
+.posted-on a{
+	display: block;
+    font-size: 14px;
+    line-height: 20px;
+	color: #606060;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 .post-desk h3 {
 	font-size: 15px;

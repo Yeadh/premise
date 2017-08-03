@@ -141,7 +141,7 @@ function premise_customize_css(){
 add_action( 'wp_head', 'premise_customize_css');
 
 
-//Premix activation metabox for pages
+//premise activation metabox for pages
 	
 function premise_admin_enqueue() {
 	wp_enqueue_script( 'premise-admin-enquee', get_template_directory_uri() . '/assets/js/myscript.js' );
@@ -151,7 +151,7 @@ add_action( 'admin_enqueue_scripts', 'premise_admin_enqueue' );
 /**
  * Automatic creating a page
  */
-function premix_activate()
+function premise_activate()
 {
 $pages = get_pages(array(
 	'meta_key' => '_wp_page_template',
@@ -177,7 +177,7 @@ if ( (!$pages) && isset($_GET['activated']) ){
 	}
 }
 }
-register_activation_hook( __FILE__, 'premix_activate' );
+register_activation_hook( __FILE__, 'premise_activate' );
 		
 
 
@@ -372,7 +372,8 @@ function the_breadcrumb() {
 
 
 
-
+require_once get_template_directory() .'/inc/plugins/class-tgm-plugin-activation.php';
+require_once get_template_directory() .'/inc/plugins/premise-requerd-plugin.php';
 require_once get_template_directory() . '/inc/functions/register-cpt.php';
 require_once get_template_directory() . '/inc/customizer/functions.php';
 require_once get_template_directory() . '/inc/metabox/common.php';
