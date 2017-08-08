@@ -4,10 +4,9 @@
  *
  * @package premise
  */
-
 function premise_customizer( $wp_customize ) {
 	$wp_customize->add_panel( 'premise_hero', array(
-		'priority' => 10,
+		'priority' => 30,
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
 		'title' => __( 'Hero Setting', 'premise' ),
@@ -22,7 +21,8 @@ function premise_customizer( $wp_customize ) {
 	);
 	$wp_customize->add_setting('premise_bloghero_image', array(
 			'sanitize_callback'	=> 'esc_url_raw',
-			'transport'		=> 'postMessage'
+			'transport'		=> 'postMessage',
+			'default'		=> get_stylesheet_directory_uri() . '/assets/img/hero-bg.jpg',
 		)
     );
 	
@@ -75,7 +75,8 @@ function premise_customizer( $wp_customize ) {
 	
 	$wp_customize->add_setting('premise_homehero_image', array(
 			'sanitize_callback'	=> 'esc_url_raw',
-			'transport'		=> 'postMessage'
+			'transport'		=> 'postMessage',
+			'default'		=> get_stylesheet_directory_uri() . '/assets/img/hero-bg.jpg',
 		)
     );
 	
@@ -132,16 +133,7 @@ function premise_customizer( $wp_customize ) {
 		)
 	);
 	/*End Home Hero Services*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 /*
 	*
@@ -269,120 +261,7 @@ function premise_customizer( $wp_customize ) {
 	
 	/*End Footer*/
 	
-/*
-	*
-	*Start Contact section
-	*
-*/
-	
-	$wp_customize->add_section('premise_contact_setting', array(
-		'title' => 'Contact Setting',
-		'priority' => 30,
-		)
-	);
-	//email
-	$wp_customize->add_setting( 'premise_contact_email', array(
-	  'capability' => 'edit_theme_options',
-	  'default' => 'info@yoursite.com',
-	  'sanitize_callback' => 'sanitize_text_field',
-	) );
 
-	$wp_customize->add_control( 'premise_contact_email', array(
-	  'type' => 'textarea',
-	  'section' => 'premise_contact_setting',
-	  'settings' => 'premise_contact_email',
-	  'label' => __( 'Custom Text Area' ),
-	  'description' => __( 'Add Your Email ID.' ),
-	) );
-	//phone
-	$wp_customize->add_setting( 'premise_contact_phone', array(
-	  'capability' => 'edit_theme_options',
-	  'default' => '+1 23456-67890',
-	  'sanitize_callback' => 'sanitize_text_field',
-	) );
-
-	$wp_customize->add_control( 'premise_contact_phone', array(
-	  'type' => 'textarea',
-	  'section' => 'premise_contact_setting',
-	  'settings' => 'premise_contact_phone',
-	  'label' => __( 'Custom Text Area' ),
-	  'description' => __( 'This is a custom textarea.' ),
-	) );
-	
-	//Address
-	$wp_customize->add_setting( 'premise_contact_address', array(
-	  'capability' => 'edit_theme_options',
-	  'default' => 'Upper Level, Overseas Passanger
-					Terminal, The Rocks, Sydney 2000',
-	  'sanitize_callback' => 'sanitize_text_field',
-	) );
-
-	$wp_customize->add_control( 'premise_contact_address', array(
-	  'type' => 'textarea',
-	  'section' => 'premise_contact_setting',
-	  'settings' => 'premise_contact_address',
-	  'label' => __( 'Custom Text Area' ),
-	  'description' => __( 'This is a custom textarea.' ),
-	) );
-	
-	//Contact form shortcode
-
-	$wp_customize->add_setting('premise_contact_shortcode', array(
-            'default' => '',
-			'sanitize_callback' => 'contact_shortcode'
-        )
-    );
-	 function contact_shortcode( $text ) {
-		return sanitize_text_field( $text );
-	 }
-	$wp_customize->add_control('premise_contact_shortcode', array(
-			'label'    => __( 'Shortcode', 'premise' ),
-			'section'  => 'premise_contact_setting',
-			'settings' => 'premise_contact_shortcode',
-			'type'     => 'text',
-		)
-	);
-	
-	/*End contact*/
-	
-	
-	
-/*******************************************************
-	*
-	*ABout  Page
-	*
-**********************************************************/
-	$wp_customize->add_panel( 'premise_about', array(
-		'priority' => 10,
-		'capability' => 'edit_theme_options',
-		'theme_supports' => '',
-		'title' => __( 'About Page Setting', 'premise' ),
-		) 
-	);
-	$wp_customize->add_section('premise_home_about', array(
-		'title' => 'Home About section',
-		'priority' => 20,
-		'panel' => 'premise_about',
-		)
-	);
-	
-	$wp_customize->add_setting('premise_homeabout_image', array(
-			'sanitize_callback'	=> 'sanitize_text_field',
-			'transport'		=> 'postMessage'
-		)
-    );
-	
-	$wp_customize->add_control(
-       new WP_Customize_Image_Control(
-           $wp_customize,'premise_homeabout_image',array(
-               'label'      => __( 'Upload Your Image', 'premise' ),
-               'section'    => 'premise_home_about',
-               'settings'   => 'premise_homeabout_image',
-               'context'    => 'your_setting_context' 
-           )
-       )
-   );
-	/*End HomePage About Image*/
 	
 	/*Start HomePage About who are you*/
 	
@@ -446,6 +325,6 @@ function premise_customizer( $wp_customize ) {
 	) );
 	/*End HomePage About content*/
 	
-	
+
 }
 add_action( 'customize_register', 'premise_customizer' );

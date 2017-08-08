@@ -25,7 +25,13 @@ if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
                 'icon' => 'fa fa-coffee',
                 'fields' => array(
                      // Section field
-                     
+                     array(
+                         'id' => 'about_us_whatdo',
+                        'type' => 'text',
+                        'title' => __( 'Section Title', 'premise' ),
+                        'default' => __( 'WE LOVE WHAT WE DO', 'premise' ) 
+                    ),
+					
                     array(
                          'id' => 'about_page_details',
                         'type' => 'wysiwyg',
@@ -54,22 +60,31 @@ if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
                 'fields' => array(
                      // Section field
                      array(
-                         'id' => 'about_team_bgimage',
-                        'type' => 'image',
-                        'title' => __( 'Team Section BG Image', 'premise' ),
-                        'default' => __( '', 'premise' ) 
+                         'id' => 'about_us_team',
+                        'type' => 'text',
+                        'title' => __( 'Section Title', 'premise' ),
+                        'default' => __( 'WE ARE PASSIONATE AND CREATIVE', 'premise' ) 
                     ),
                     
                 ) //end fields
             ),
 			
 			// begin  SPONSORS section
+			
+					
             array(
                  'name' => 'about_Page_sponsors',
-                'title' => __( 'SPONSORS Section', 'premise' ),
+                'title' => __( 'Sponsors Section', 'premise' ),
                 'icon' => 'fa fa-coffee',
                 'fields' => array(
                      // Gallery group
+					 // Section field
+                     array(
+                         'id' => 'about_clients',
+                        'type' => 'text',
+                        'title' => __( 'Section Title', 'premise' ),
+                        'default' => __( 'THEY GIVE US THEIR COMPLIMENTS', 'premise' ) 
+                    ),
 					array(
 						  'id'          => 'sponsors_images',
 						  'type'        => 'gallery',

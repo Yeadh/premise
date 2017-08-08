@@ -368,7 +368,14 @@ function the_breadcrumb() {
     }
 }
 
+		// remove premise default Customize Appearance Options
 
+	function premise_customize_register( $wp_customize ) {
+		$wp_customize->remove_section('header_image'); 
+		$wp_customize->remove_section('colors');
+		$wp_customize->remove_section('background_image');
+	}
+	add_action('customize_register', 'premise_customize_register');
 
 
 
@@ -378,3 +385,5 @@ require_once get_template_directory() . '/inc/functions/register-cpt.php';
 require_once get_template_directory() . '/inc/customizer/functions.php';
 require_once get_template_directory() . '/inc/metabox/common.php';
 require_once get_template_directory() . '/inc/metabox/about.php';
+require_once get_template_directory() . '/inc/metabox/team.php';
+require_once get_template_directory() . '/inc/metabox/contact.php';

@@ -26,14 +26,14 @@
 
 					endwhile; // End of the loop.
 				?>
-					
-				<div class="p-pagination">
-					<a href="#" class="p-next"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-					<a href="#" class="p-active">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
-					<a href="#" class="p-prev"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-				</div><!-- .p-pagination -->
+				<?php
+					the_posts_pagination( array(
+						'mid_size'  => 4,
+						'prev_text' => __( '<i class="fa fa-angle-left" aria-hidden="true"></i>', 'premix' ),
+						'next_text' => __( '<i class="fa fa-angle-right" aria-hidden="true"></i>', 'premix' ),
+					) );
+				?>
+				
 			</div><!-- .col -->
 				<?php get_template_part('template-parts/widget-areas/blog'); ?>
 			</div><!-- .row -->

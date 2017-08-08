@@ -1056,14 +1056,14 @@ ul.portfolio-s-info li span {
 	color: #7e7e7e;
 	margin-bottom: 25px;
 }
-.p-pagination {
+.nav-links {
 	position: relative;
 	width: 380px;
 	margin: auto;
 	text-align: center;
 	padding: 5px 50px;
 }
-.p-pagination a {
+.nav-links a, .current {
 	border: 1px solid #3c3c3c;
 	color: #3c3c3c;
 	font-size: 15px;
@@ -1074,13 +1074,13 @@ ul.portfolio-s-info li span {
 	line-height: 38px;
 	text-align: center;
 }
-.p-pagination a:hover,
-.p-active {
+.nav-links a:hover,
+.current {
 	background: #3c3c3c;
 	color: #fff !important;
 }
-.p-pagination .p-next,
-.p-pagination .p-prev {
+.nav-links .next,
+.nav-links .prev {
 	display: block;
 	height: 50px;
 	line-height: 48px;
@@ -1089,12 +1089,8 @@ ul.portfolio-s-info li span {
 	top: 50%;
 	margin-top: -25px;
 }
-.p-pagination .p-next {
-	left: 0;
-}
-.p-pagination .p-prev {
-	right: 0
-}
+.next{right:0;}
+.screen-reader-text{display:none;}
 /*Sidebar*/
 .sidebar {
 	padding-left: 10%;
@@ -1268,7 +1264,8 @@ ul.widget-menu {
 	letter-spacing: 1.5px;
 }
 .blog-comment textarea, 
-.blog-comment input {
+.blog-comment input, .comment-form-comment textarea, 
+.comment-form-comment input {
 	width: 100%;
 	border-top: none;
 	border-left: none;
@@ -1295,6 +1292,25 @@ ul.widget-menu {
 .blog-comment textarea {
 	height: 140px;
 	
+}
+.form-submit .submit {
+	width: 150px;
+	padding: 0 10px 0 10px;
+	color: #fff;
+	height: 45px;
+	line-height: 30px;
+	display: inline-block;
+	background: #3c3c3c;
+	border: 1px solid #3c3c3c;
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: 300;
+	letter-spacing: 1px;
+	opacity: 1;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
 }
 .blog-form-btn {
 	color: #fff;
@@ -1325,9 +1341,50 @@ ul.widget-menu {
 /*--------------------------------------------------------------
 # Contact Page
 --------------------------------------------------------------*/
-.hero-area.hero-contact {
-	background: url(../img/about-rero.jpg) no-repeat center center;
-	background-size: cover;
+.wpcf7-form span:nth-child(1), .wpcf7-form span:nth-child(3) {
+    display: inline-block;
+    width: 50%;
+    padding-right: 15px;
+    float: left;
+}
+.wpcf7-form span:nth-child(3){
+	    margin-top: -23px;
+}
+.wpcf7-form span label {
+    display: block;
+    width: 100%;
+    border: 0px;
+    background-color: transparent;
+    padding: 10px 0 10px 10px;
+    text-transform: uppercase;
+    transition: all .4s;
+    color: #655a5a;
+    font-size: 13px;
+	width: 100%;
+}
+.wpcf7-form p{
+	display: inline-block;
+    width: 100%!important;
+    float: left;
+}
+.wpcf7-form p:nth-child(3), .wpcf7-form p:nth-child(2) {
+    display: inline-block;
+    width: 50%;
+    padding-right: 15px;
+    float: left;
+}
+
+.wpcf7-form p label {
+    display: block;
+    width: 100%;
+    border: 0px;
+    background-color: transparent;
+    padding: 10px 0 10px 10px;
+    text-transform: uppercase;
+    transition: all .4s;
+    color: #655a5a;
+    font-size: 13px;
+	width: 100%;
 }
 .contact-form {
 	padding: 100px 0;
@@ -1360,7 +1417,7 @@ ul.widget-menu {
 	font-weight: 300;
 	font-family: 'Roboto', sans-serif;
 }
-.contact-form .form-control {
+.contact-form .form-control, .wpcf7-form-control {
 	border-radius: 0;
 	background: #F4F4F4;
 	border: 2px solid #F4F4F4;
@@ -1375,14 +1432,15 @@ ul.widget-menu {
 	-moz-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
+	width: 100%;
 }
-.contact-form .form-control:focus {
+.contact-form .form-control:focus, .wpcf7-form-control:focus {
 	border-bottom: 2px solid #3c3c3c;
 }
-.contact-form textarea.form-control {
+.your-message textarea, .wpcf7-textarea{
 	height: 200px;
 }
-.cont-send-btn {
+.cont-send-btn, .wpcf7-submit {
 	display: inherit;
 	margin: auto;
 	border: 2px solid #d5d2d2;
@@ -1397,8 +1455,9 @@ ul.widget-menu {
 	-moz-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
+	    width: 30%;
 }
-.cont-send-btn:hover {
+.cont-send-btn:hover, .wpcf7-submit:hover {
 	border: 2px solid #3c3c3c;
 }
 
@@ -2291,7 +2350,7 @@ blockquote small {
 	}
 }
 @media screen and (max-width: 550px) {
-	.p-pagination {
+	.nav-links {
 		width: 70%;
 	}
 }
@@ -2308,7 +2367,7 @@ blockquote small {
 	.search-area {
 		width: 90%;
 	}
-	.p-pagination {
+	.nav-links {
 		width: 80%;
 	}
 }

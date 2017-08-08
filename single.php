@@ -27,23 +27,7 @@ get_header(); ?>
 						comments_template();
 					endif;
 				?>
-				<div class="blog-comment">
-					<h3>LEAVE A COMMENT</h3>
-					<form>
-						<textarea name="comment" cols="30" rows="10" placeholder="Write a comment"></textarea>
-						<div class="row">
-							<div class="col-md-6">
-								<input type="text" placeholder="Name">
-							</div><!-- .col -->
-							<div class="col-md-6">
-								<input type="email" placeholder="E-Mail">
-							</div><!-- .col -->
-							<div class="col-md-12">
-								<button class="blog-form-btn">Send</button>
-							</div><!-- .col -->
-						</div>
-					</form>
-				</div><!-- .blog-comment -->
+				
 			</div><!-- .col -->
 			<?php get_template_part('template-parts/widget-areas/blog'); ?>
 		</div><!-- .row -->

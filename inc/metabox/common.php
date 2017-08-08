@@ -37,6 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
 								'portfolio-2' => 'Portfolio masonry',
                                  'blog' => 'Blog Section',
                                  'testimonials' => 'Testimonials Section',
+                                 'services' => 'Service Section',
 							) 
                         ),
                         'enabled_title' => 'Active Section',
@@ -76,8 +77,98 @@ if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
                     ) 
                 ) //end fields
             ),
-            
-           
+            // begin services section
+            array(
+                 'name' => 'overview',
+                'title' => __( 'Services', 'premise' ),
+                'icon' => 'fa fa-eye',
+                'fields' => array(
+					// a field
+                     array(
+                         'id' => 'overview_title',
+                        'type' => 'text',
+                        'title' => __( 'Section Title', 'premise' ),
+                        'default' => __( '', 'premise' ) 
+                    ),
+                    // a field
+                    array(
+                         'id' => 'overview_subtitle',
+                        'type' => 'text',
+                        'title' => __( 'Section Subtitle', 'premise' ),
+                        'default' => __( '', 'premise' ) 
+                    ),
+                    //Service group
+                    array(
+                         'id' => 'overview_icon_boxs',
+                        'type' => 'group',
+                        'title' => 'Add Services',
+                        'button_title' => __( 'Add New Service', 'premise' ),
+                        'accordion_title' => __( 'Add New Service', 'premise' ),
+                        'fields' => array(
+							array(
+									 'id' => 'icon',
+									'type' => 'icon',
+									'title' => __( 'Icon', 'premise' ) 
+								),
+                             array(
+                                 'id' => 'title',
+                                'type' => 'text',
+                                'title' => __( 'Title', 'premise' ) 
+                            ),
+                            array(
+                                 'id' => 'description',
+                                'type' => 'textarea',
+                                'title' => __( 'Description', 'premise' ) 
+                            ),
+                             
+                        ) 
+                    ) 
+                ) //end fields
+            ),
+            // begin Testimonials section
+            array(
+                 'name' => 'testimonial',
+                'title' => __( 'testimonials', 'premise' ),
+                'icon' => 'fa fa-eye',
+                'fields' => array(
+					// a field
+                     array(
+                         'id' => 'testimonial_title',
+                        'type' => 'text',
+                        'title' => __( 'Section Title', 'premise' ),
+                        'default' => __( '', 'premise' ) 
+                    ),
+                    // a field
+                    array(
+                         'id' => 'testimonial_subtitle',
+                        'type' => 'text',
+                        'title' => __( 'Section Subtitle', 'premise' ),
+                        'default' => __( '', 'premise' ) 
+                    ),
+                    //Service group
+                    array(
+                         'id' => 'testimonial_boxs',
+                        'type' => 'group',
+                        'title' => 'Add Testimonial',
+                        'button_title' => __( 'Add New testimonial', 'premise' ),
+                        'accordion_title' => __( 'Add New testimonial', 'premise' ),
+                        'fields' => array(
+							
+                             array(
+                                 'id' => 'name',
+                                'type' => 'text',
+                                'title' => __( 'Title', 'premise' ) 
+                            ),
+                            array(
+                                 'id' => 'description',
+                                'type' => 'textarea',
+                                'title' => __( 'Description', 'premise' ) 
+                            ),
+                             
+                        ) 
+                    ) 
+                ) //end fields
+            ),
         ) 
     );
 	
